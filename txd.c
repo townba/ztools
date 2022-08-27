@@ -68,6 +68,18 @@ extern int getopt ();
 #endif
 
 #ifdef __STDC__
+extern void configure_inform_tables (unsigned long, unsigned short *,
+                                     unsigned long *, unsigned long *,
+                                     unsigned long *, unsigned long *,
+                                     unsigned long *, unsigned long *);
+extern void configure_object_tables
+    (unsigned int *, unsigned long *, unsigned long *, unsigned long *,
+     unsigned long *);
+extern void init_symbols (const char *);
+extern int print_attribute_name (unsigned long, int);
+extern int print_global_name (unsigned long, int);
+extern int print_local_name (unsigned long, int);
+extern int print_property_name (unsigned long, int);
 static void process_story (const char *);
 static void decode_program (void);
 static int decode_routine (void);
@@ -1282,12 +1294,14 @@ int opers;
 	    break;
 
 	case PCHAR:
-	    if (decode.first_pass == 0)
-		if (isprint ((char) value))
+	    if (decode.first_pass == 0) {
+		if (isprint ((char) value)) {
 		    tx_printf ("\'%c\'", (char) value);
-		else
+		} else {
 		    print_integer (value, addr_mode == BYTE_IMMED);
+		}
 	    break;
+	    }
 
 	case VATTR:
 	    if (decode.first_pass == 0) {

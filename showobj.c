@@ -7,6 +7,12 @@
 #include "tx.h"
 
 #ifdef __STDC__
+extern void configure_inform_tables (unsigned long, unsigned short *,
+                                     unsigned long *, unsigned long *,
+                                     unsigned long *, unsigned long *,
+                                     unsigned long *, unsigned long *);
+extern int print_attribute_name (unsigned long, int);
+extern int print_property_name (unsigned long, int);
 void configure_object_tables
     (unsigned int *, unsigned long *, unsigned long *, unsigned long *,
      unsigned long *);

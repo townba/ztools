@@ -64,6 +64,8 @@ static struct routine_entry_t *routines_table;
 static int routine_entries;
 
 
+extern int print_inform_attribute_name (unsigned long, int);
+
 #ifdef __STDC__
 static int get_type_from_name(char *tname)
 #else
@@ -307,8 +309,6 @@ unsigned long start_of_routine;
 int local_no;
 #endif
 {
-	start_of_routine;
-	local_no;
 	return 0;
 }
 
@@ -321,7 +321,6 @@ unsigned long start_of_routine;
 int global_no;
 #endif
 {
-	start_of_routine;
 	if ((global_no < global_entries) && global_names_table[global_no].symtype == sym_global) {
 		tx_printf(global_names_table[global_no].name);
 		return 1;
